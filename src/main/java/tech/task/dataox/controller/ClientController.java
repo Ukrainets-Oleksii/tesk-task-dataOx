@@ -100,7 +100,7 @@ public class ClientController {
                     description = "Client not found or inactive"
             )
     })
-    @GetMapping("profit/{id}")
+    @GetMapping("/profit/{id}")
     public ResponseEntity<BigDecimal> getProfit(@PathVariable Long id) {
         return ResponseEntity.ok(clientService.findClientProfitById(id));
     }
@@ -195,7 +195,7 @@ public class ClientController {
         @ApiResponse(responseCode = "204", description = "Deactivated"),
         @ApiResponse(responseCode = "404", description = "Client not found")
     })
-    @PatchMapping("deactivate/{id}")
+    @PatchMapping("/deactivate/{id}")
     public ResponseEntity<Void> deactivateClientById(@PathVariable Long id) {
         clientService.deactivateById(id);
         return ResponseEntity.noContent().build();

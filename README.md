@@ -35,7 +35,9 @@ Author: Oleksii Ukrainets
      ```bash
      docker-compose up
      ```
-That’s it. After these steps, the project will be running inside Docker containers.
+That’s it. After these steps, the project will be running inside Docker containers.  
+The project will be available at [http://localhost:8080](http://localhost:8080).  
+Swagger UI is also available at [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html).
 
 ## Test Cases
 
@@ -44,11 +46,13 @@ You can send requests via Postman to test the following cases:
 
 ### Case 1
 The user accidentally sends a request to create N + 1 identical orders with price 1.  
-Only one valid order should be created; the rest should return an error.
+Only one valid order should be created; the rest should return an error.  
+Endpoint: (GET) [http://localhost:8080/api/test/caseOne](http://localhost:8080/api/test/caseOne)
 
 ### Case 2
 A user accidentally sends a request to create 10 identical orders with price increases from 10 to 100, in increments of 10.
-If the buyer's profit at the time of sending is -970, only one valid order should be created; the rest should return an error.
+If the buyer's profit at the time of sending is -970, only one valid order should be created; the rest should return an error.  
+Endpoint: (GET) [http://localhost:8080/api/test/casetwo](http://localhost:8080/api/test/caseTwo)
 
 ### Case 3
 The user sends a request to create N + 1 different orders.  
@@ -56,4 +60,5 @@ At the same moment, the client is made inactive (also via API).
 Only the orders that were processed before the client became inactive should be created.
 
 **Note:** For Case 3, the response might return `500 Internal Server Error`, because the user can be deactivated after the program checks that the user is not deleted.  
-However, the test case itself works as expected.
+However, the test case itself works as expected.  
+Endpoint: (GET) [http://localhost:8080/api/test/caseThree](http://localhost:8080/api/test/caseThree)
