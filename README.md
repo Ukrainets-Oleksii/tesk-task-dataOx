@@ -1,4 +1,4 @@
-# TechTask
+# Tech-task
 
 Author: Oleksii Ukrainets
 
